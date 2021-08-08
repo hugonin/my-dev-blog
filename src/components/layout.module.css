@@ -5,24 +5,149 @@
   box-sizing: border-box;
 }
 
-/* Set core root defaults */
-html:focus-within {
-    scroll-behavior: smooth;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+  
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
   
 
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* //////////////////////
+  General styling
+/////////////////////////// */
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.0625rem;
+    color: #1A1A1A;;
+}
+  
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif;
+    font-weight: 900;
+    line-height: 1.1;
+}
+  
+strong {
+    font-weight: 700;
+}
+
+section,
+.section {
+  padding: min(10vh, 10em) 0;
+}
+
+.logo {
+    width: 6rem;
+    position: absolute;
+    margin: -10px 2px 0;
+}
+/* //////////////////////
+  Utility Classes
+  /////////////////////// */
+
+/* select all direct childen of .flow
+   and add margin to the top for proper
+   spacing */
+
+.flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-spacer, 1em);
+}
+  
 .container {
+    composes: flow;
     margin-inline: auto;
     padding-inline: 1.5em;
     max-width: 72rem;
-    font-family: sans-serif;
+}
+  
+.container-narrow {
+    max-width: 65rem;
+}
+  
+.flex-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap, 1em);
+}
+  
+.text-center {
+    text-align: center;
 }
 
-.heading {
-    color: rebeccapurple;
+
+
+/* //////////////////////
+  Homepage
+  /////////////////////// */
+
+.hero > div {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr;
+    align-items: center;
+    gap: 3em;
+}
+  
+
+@media (min-width: 45em) {
+    .hero > div {
+      grid-auto-flow: column;
+    }
+}
+
+.section-title {
+    color:#005243;
+    font-size: 600;
 }
 
 .nav-links {
+    composes: flex-group;
     display: flex;
     list-style: none;
     padding-left: 0;
@@ -35,7 +160,7 @@ html:focus-within {
 
 .nav-links :focus,
 .nav-links :hover {
-    color: green;
+    color: #00856C;
     text-decoration: underline;
 }
 
@@ -45,7 +170,7 @@ html:focus-within {
 }
   
 .nav-link-text {
-    color: black;
+    color: #1A1A1A;
     text-decoration: none;
 }  
 
@@ -62,14 +187,8 @@ html:focus-within {
     grid-auto-columns: 1fr;
     align-items: center;
     gap: 3em;
-  }
+ }
 
-.flex-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap, 1em);
-
-}
 
 .hero-image {
     width: 100%;
@@ -77,8 +196,13 @@ html:focus-within {
     object-fit: cover;
   }
 
+@media (min-width: 45em) {
+    .hero-content > div {
+      grid-auto-flow: column;
+    }
+}
 
-.button {
+.btn {
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
@@ -87,12 +211,46 @@ html:focus-within {
     border-radius: 0.25em;
     align-self: start;
     justify-self: start;
-  }  
+}
+
+.btn:focus {
+    outline: 0.125em solid #00856C;
+    outline-offset: 0.25em;
+}
+
+
+.btn-primary {
+    composes: btn;
+    background: #00856C;
+    color: #FFFFFF;
+    font-weight: 700;
+    border: 2px solid #00856C;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: #005243;
+    border-color: #005243; 
+}
+  
+.btn-neutral  {
+    composes: btn;
+    background-color: #FFFFFF;
+    color: #1A1A1A;
+    font-weight: 700;
+    border: 2px solid #1A1A1A;
+}
+  
+.btn-neutral:hover,
+.btn-neutral:focus {
+    color: #FFFFFF;
+    background-color: #1A1A1A;
+}  
 
 .site-footer {
     padding: 2em 0;
-    color: grey;
-    //background-color: green;
+    color: #050000;
+   /* background-color: #005243;*/
     text-align: center;
 
 }
