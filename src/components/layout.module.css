@@ -202,6 +202,72 @@ section,
     }
 }
 
+/* //////////////////////
+  Article snippets
+  /////////////////////// */
+
+.articles-list {
+    --flow-spacer: 3rem;
+    margin: 6rem 0;
+  }  
+
+.snippet {
+    display: grid;
+    gap: 1em;
+    grid-template-areas:
+      "image"
+      "title"
+      "meta"
+      "body";
+}
+
+.snippet-image {
+    grid-area: image;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.snippet-title {
+    grid-area: title;
+    color: #1A1A1A;
+    font-size: 500;
+    text-decoration: none;
+}
+
+.snippet-meta {
+    grid-area: meta;
+    color: #808080;
+}
+  
+.snippet-meta span {
+    color: #1A1A1A;
+}
+/*  
+.snippet .btn {
+    grid-area: button;
+}
+*/
+
+
+.snippet-title :hover,
+.snippet-title :focus {
+    color: #005243;
+} 
+
+@media (min-width: 45em) {
+    .snippet {
+      grid-template-areas:
+        "title image"
+        "meta image"
+        "body image"
+        "button image";
+      grid-column-gap: 4em;
+      grid-template-columns: 1fr 40%;
+      grid-template-rows: min-content min-content min-content 1fr;
+    }
+}
+
 .btn {
     cursor: pointer;
     text-decoration: none;
