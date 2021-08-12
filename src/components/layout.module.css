@@ -214,6 +214,7 @@ section,
 .snippet {
     display: grid;
     gap: 1em;
+    margin-bottom: 1em;
     grid-template-areas:
       "image"
       "title"
@@ -223,6 +224,7 @@ section,
 
 .snippet-image {
     grid-area: image;
+    margin-bottom: 1em;
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;

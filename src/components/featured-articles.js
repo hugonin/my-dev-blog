@@ -1,7 +1,6 @@
-import * as React from "react";
+import React from 'react'
 import { Link, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import Layout from "../components/layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import {
@@ -12,12 +11,11 @@ import {
   snippetMeta,
 } from "../components/layout.module.css";
 
-const BlogPage = ({ data }) => {
-  // const image = getImage(data.allMdx.frontmatter.hero_image)
-  return (
-    <Layout pageTitle="My Blog Posts">
-      <div className={articlesList}>
-        {data.allMdx.nodes.map((node) => (
+function featuredArticles(props) {
+    const articles = props.data.allMdx
+    return (
+        <div>
+             {articles.nodes.map((node) => (
           <article key={node.id} className={snippet}>
             <GatsbyImage
               image={
@@ -39,10 +37,9 @@ const BlogPage = ({ data }) => {
             <MDXRenderer>{node.body}</MDXRenderer>
           </article>
         ))}
-      </div>
-    </Layout>
-  );
-};
+        </div>
+    )
+}
 
 export const query = graphql`
   query {
@@ -68,4 +65,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogPage;
+export default featuredArticles
