@@ -96,7 +96,7 @@ section,
    spacing */
 
 .flow > *:where(:not(:first-child)) {
-    margin-top: var(--flow-spacer, 1em);
+    margin-top: var(--flow-spacer, .5em);
 }
   
 .container {
@@ -105,7 +105,7 @@ section,
     padding-inline: 1.5em;
     max-width: 72rem;
 }
-  
+ 
 .container-narrow {
     max-width: 65rem;
 }
@@ -142,8 +142,9 @@ section,
 }
 
 .section-title {
-    color:#005243;
-    font-size: 600;
+  composes: text-center;
+  color:#005243;
+  font-size: 600;
 }
 
 .nav-links {
@@ -202,13 +203,19 @@ section,
     }
 }
 
+.featured-articles {
+  background-color: #E9FBF8;
+  width:100%;
+
+}
+
 /* //////////////////////
   Article snippets
   /////////////////////// */
 
 .articles-list {
     --flow-spacer: 3rem;
-    margin: 6rem 0;
+    margin: 6rem 1.5rem;
   }  
 
 .snippet {
@@ -318,7 +325,7 @@ section,
 .site-footer {
     padding: 2em 0;
     color: #050000;
-   /* background-color: #005243;*/
+    background-color: #005243;
     text-align: center;
 
 }

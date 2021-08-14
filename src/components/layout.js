@@ -3,7 +3,6 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
 import {
-  container,
   navLinks,
   navLinkItem,
   navLinkText,
@@ -24,7 +23,7 @@ const Layout = ({ pageTitle, children }) => {
     }
   `)
   return (
-    <div className={container}>
+    <div>
       <title>{pageTitle} | {data.site.siteMetadata.title}</title>
       <div className={pageHeaderContent}>
         <div>
