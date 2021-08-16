@@ -144,7 +144,7 @@ section,
 .section-title {
   composes: text-center;
   color:#005243;
-  font-size: 600;
+  font-size: 2.25rem;
 }
 
 .nav-links {
@@ -182,7 +182,8 @@ section,
 
 }
 
-.hero-content > div {
+.hero-content {
+    composes: flow;
     display: grid;
     grid-auto-flow: row;
     grid-auto-columns: 1fr;
@@ -206,7 +207,17 @@ section,
 .featured-articles {
   background-color: #E9FBF8;
   width:100%;
+}
 
+/* //////////////////////
+  About page
+  /////////////////////// */
+
+.image-full {
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 2em;
 }
 
 /* //////////////////////
@@ -240,7 +251,7 @@ section,
 .snippet-title {
     grid-area: title;
     color: #1A1A1A;
-    font-size: 500;
+    font-size: 1.5rem;
     text-decoration: none;
 }
 
@@ -323,9 +334,38 @@ section,
 }  
 
 .site-footer {
-    padding: 2em 0;
+    padding: 2.5em 0;
+    font-size: 2rem;
+    display: grid;
+    grid-template-areas:
+    ". social ."
+    ". main .";
     color: #050000;
     background-color: #005243;
     text-align: center;
 
+}
+
+.footer-main,
+.social-list {
+    grid-column: 2 / -2;
+}
+
+.footer-main {
+    grid-area: main;
+}
+
+.footer-fineprint {
+  font-size: .85rem;
+  margin-top: 5em;
+  opacity: .3;
+}
+
+.social-list {
+  grid-area: social;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 2em;
+  padding: 0;
 }

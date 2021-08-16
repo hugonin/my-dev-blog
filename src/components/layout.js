@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import Footer from "./footer"
 
 import {
   navLinks,
@@ -53,13 +54,7 @@ const Layout = ({ pageTitle, children }) => {
       <main>
         {children}
       </main>
-      <footer className={siteFooter}>
-        <p>
-          © {new Date().getFullYear()} Hugonin
-          {` `}
-          <a href="#">hugonin@dev.com</a>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -5,19 +5,28 @@ import Layout from "../components/layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import {
+  container,
+  sectionTitle,
+  textCenter,
   articlesList,
   snippet,
   snippetImage,
   snippetTitle,
   snippetMeta,
+  btnPrimary
 } from "../components/layout.module.css";
-
 
 
 const BlogPage = ({ data }) => {
   // const image = getImage(data.allMdx.frontmatter.hero_image)
   return (
     <Layout pageTitle="My Blog Posts">
+     <section>
+     <div className={container}>
+        <h2 className={sectionTitle}>My Articles</h2>
+        <p className={textCenter}>
+           Below  are my articles!
+          </p>
         <div className={articlesList}>
           {data.allMdx.nodes.map((node) => (
             <article key={node.id} className={snippet}>
@@ -39,9 +48,16 @@ const BlogPage = ({ data }) => {
                 {node.frontmatter.date}{" "}
               </p>
               <MDXRenderer>{node.body}</MDXRenderer>
+              <Link to="/" className={btnPrimary}>
+              Continue reading
+            </Link>
             </article>
           ))}
         </div>
+      </div>
+     </section>
+       
+    
     </Layout>
   );
 };

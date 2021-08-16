@@ -15,6 +15,7 @@ import {
   snippetImage,
   snippetTitle,
   snippetMeta,
+  btnPrimary
 } from "../components/layout.module.css";
 
 
@@ -44,6 +45,9 @@ const IndexPage = ({data}) => {
                 {node.frontmatter.date}{" "}
               </p>
               <MDXRenderer>{node.body}</MDXRenderer>
+              <Link to="/" className={btnPrimary}>
+              Continue reading
+            </Link>
             </article>
           ))}
         </div>
