@@ -122,9 +122,6 @@ section,
 
 
 
-/* //////////////////////
-  Homepage
-  /////////////////////// */
 
 .hero > div {
     display: grid;
@@ -288,6 +285,11 @@ section,
     }
 }
 
+/* //////////////////////
+  Button
+  /////////////////////// */
+
+
 .btn {
     cursor: pointer;
     text-decoration: none;
@@ -333,6 +335,11 @@ section,
     background-color: #1A1A1A;
 }  
 
+/* //////////////////////
+  Footer
+  /////////////////////// */
+
+
 .site-footer {
     padding: 2.5em 0;
     font-size: 2rem;
@@ -361,6 +368,11 @@ section,
   opacity: .3;
 }
 
+.footer-logo {
+  width: 6rem;
+  margin: -1em ;
+}
+
 .social-list {
   grid-area: social;
   list-style: none;
@@ -369,3 +381,54 @@ section,
   margin: 0 0 2em;
   padding: 0;
 }
+
+
+.social-list-item {
+  margin: 0 .5em; 
+  
+}
+
+.social-list-link {
+  padding: .5em;
+  opacity: .3;
+  color: #000;
+}
+
+.social-list-link:hover {
+  color: #00856C;
+}
+
+@media (min-width: 600px) {
+  .site-footer {
+      grid-template-areas: 
+        "main main social";
+      padding: 2.5em .95em;    
+  }
+  
+  .footer-main {
+      text-align: left;
+      margin: 1.275em 1em;
+  }
+  
+  .social-list {
+      justify-content: flex-end;
+      margin-top: 1em;
+  }
+
+  .social-list-item {
+      margin: 0 .25em; 
+  }
+}
+
+@media (min-width : 960px) {
+  .site-footer {
+      padding: 0 1.75em;
+  }
+}
+
+
+
+
+
+
+
