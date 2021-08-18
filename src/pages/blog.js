@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+//import { MDXRenderer } from "gatsby-plugin-mdx";
 import Layout from "../components/layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
@@ -47,8 +47,10 @@ const BlogPage = ({ data }) => {
                 by <span>{node.frontmatter.author}</span> <span>on</span>{" "}
                 {node.frontmatter.date}{" "}
               </p>
-              <MDXRenderer>{node.body}</MDXRenderer>
-              <Link to="/" className={btnPrimary}>
+              <p>{node.excerpt}</p>
+           
+           
+              <Link to={`/blog/${node.slug}`} className={btnPrimary}>
               Continue reading
             </Link>
             </article>
@@ -80,7 +82,7 @@ export const query = graphql`
         id
         body
         slug
-        excerpt(pruneLength: 150)
+        excerpt(pruneLength: 200)
       }
     }
   }

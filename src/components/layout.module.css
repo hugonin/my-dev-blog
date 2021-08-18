@@ -107,6 +107,7 @@ section,
 }
  
 .container-narrow {
+    composes: container;
     max-width: 65rem;
 }
   
@@ -119,7 +120,6 @@ section,
 .text-center {
     text-align: center;
 }
-
 
 
 
@@ -216,6 +216,21 @@ section,
   object-fit: cover;
   margin-bottom: 2em;
 }
+
+/* //////////////////////
+  Individual article page
+  /////////////////////// */
+
+  .main-article {
+    margin-bottom: 3rem;
+  }
+
+  .main-article-image  {
+    margin: 1rem 0;
+    font-size: var(--fs-300);
+    opacity: .9;
+  }
+
 
 /* //////////////////////
   Article snippets

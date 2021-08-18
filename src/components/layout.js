@@ -9,7 +9,6 @@ import {
   navLinkText,
   pageHeaderContent,
   logo,
-  siteFooter,
 } from "./layout.module.css";
 
 const Layout = ({ pageTitle, children }) => {
