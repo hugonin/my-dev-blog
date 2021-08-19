@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 //import { MDXRenderer } from "gatsby-plugin-mdx";
-import Layout from "../components/layout";
+import Layout from "../../components/layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import {
@@ -14,7 +14,7 @@ import {
   snippetTitle,
   snippetMeta,
   btnPrimary
-} from "../components/layout.module.css";
+} from "../../components/layout.module.css";
 
 
 const BlogPage = ({ data }) => {
@@ -64,7 +64,8 @@ const BlogPage = ({ data }) => {
   );
 };
 
-export const query = graphql`
+export const query = graphql
+`
   query {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
@@ -80,7 +81,6 @@ export const query = graphql`
           }
         }
         id
-        body
         slug
         excerpt(pruneLength: 200)
       }
